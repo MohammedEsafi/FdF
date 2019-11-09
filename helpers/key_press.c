@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 21:51:20 by ael-makk          #+#    #+#             */
-/*   Updated: 2019/11/09 10:11:57 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/09 12:37:14 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,37 @@ int			key_press(int keycode, t_fdf *fdf)
 {
 	if (keycode == 91)
 	{
-		fdf->params.x_angle += 0.2;
+		fdf->params.x_angle += 0.10472;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
 	if (keycode == 84)
 	{
-		fdf->params.x_angle -= 0.2;
+		fdf->params.x_angle -= 0.10472;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
 	if (keycode == 88)
 	{
-		fdf->params.y_angle += 0.2;
+		fdf->params.y_angle += 0.10472;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
 	if (keycode == 86)
 	{
-		fdf->params.y_angle -= 0.2;
+		fdf->params.y_angle -= 0.10472;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
 	if (keycode == 85)
 	{
-		fdf->params.z_angle += 0.2;
+		fdf->params.z_angle += 0.10472;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
 	if (keycode == 83)
 	{
-		fdf->params.z_angle -= 0.2;
+		fdf->params.z_angle -= 0.10472;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
