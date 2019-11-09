@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 21:47:48 by mesafi            #+#    #+#             */
-/*   Updated: 2019/11/09 15:27:40 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/09 23:02:57 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,11 @@ int			mouse_press(int key, int x, int y, t_fdf *fdf)
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
+	// if (key == 1)
+	// {
+	// 	fdf->params.x -= x;
+	// 	fdf->params.y -= y;
+	// }
+	// if (fdf->params.x_mouse != 0 || fdf->params.x_mouse != 0)
 	return (1);
 }

@@ -6,17 +6,18 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 12:49:18 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/09 14:18:07 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/09 22:32:46 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
-# define FDF_H
 
-# include "libft/libft.h"
-# include "mlx.h"
-# include <math.h>
-# include <fcntl.h>
+/*
+ ** definitions
+ ** --------
+*/
+
+# define FDF_H
 
 # define H 1080
 # define W 1920
@@ -25,6 +26,23 @@
 # define WH 0xFFFFFF
 # define PAD 20
 # define MENU_BACKGROUND 0x060607
+# define IMAGE_BACKGROUND 0x141414
+
+/*
+ ** includes
+ ** --------
+*/
+
+# include "libft/libft.h"
+# include <mlx.h>
+# include <math.h>
+# include <fcntl.h>
+# include <stdio.h>
+
+/*
+ ** structures
+ ** ----------
+*/
 
 typedef struct	s_point
 {
@@ -39,7 +57,7 @@ typedef struct	s_fdf
 	t_point				**map;
 	int					width;
 	int					height;
-	struct
+	struct		s_params
 	{
 		void			*mlx_ptr;
 		void			*win_ptr;
@@ -57,8 +75,15 @@ typedef struct	s_fdf
 		int				a_x;
 		int				a_y;
 		int				a_z;
+		int				x_mouse;
+		int				y_mouse;
 	}					params;
 }				t_fdf;
+
+/*
+ ** Functions
+ ** --------------
+*/
 
 int				ft_check_file(int fd, t_fdf *fdf, t_list **alst);
 int				lst_to_map(t_fdf *fdf, t_list **alst);

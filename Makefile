@@ -34,15 +34,13 @@ OBJ =	fdf.o \
 		helpers/best_zoom.o \
 		helpers/move.o
 
-MLX_LIB = MiniLibX
-
-MINI_LIB_FLAGS = -lmlx -framework OpenGL -framework AppKit
+MINI_LIB_FLAGS = -lm -lmlx -framework OpenGL -framework AppKit
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
 	make -C libft/
-	$(CC) $(CFLAG) $(OBJ) libft/libft.a -L $(MLX_LIB) $(MINI_LIB_FLAGS) -o $(NAME)
+	$(CC) $(CFLAG) $(OBJ) libft/libft.a $(MINI_LIB_FLAGS) -o $(NAME)
 
 clean :
 	rm -f $(OBJ)

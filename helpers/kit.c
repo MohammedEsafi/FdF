@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 20:07:04 by mesafi            #+#    #+#             */
-/*   Updated: 2019/11/09 18:36:41 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/09 20:41:36 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void		kit(t_fdf *fdf)
 								&bits_per_pixel, &size_line, &endian);
 	z_altitude(fdf, map);
 	scale(fdf, map);
-	// z_rotation(fdf, map);
-	// y_rotation(fdf, map);
+	z_rotation(fdf, map);
+	y_rotation(fdf, map);
 	x_rotation(fdf, map);
 	if (fdf->params.camera)
 		project_iso(fdf, map);
@@ -54,7 +54,7 @@ void		kit(t_fdf *fdf)
 	if (map[0][0].x + fdf->params.x != map[0][0].x ||
 		map[0][0].y + fdf->params.y != map[0][0].y)
 		move(*fdf, map);
-	make_image_background(fdf, 0x141414);
+	make_image_background(fdf, IMAGE_BACKGROUND);
 	draw_map(fdf, map);
 	mlx_put_image_to_window(fdf->params.mlx_ptr, fdf->params.win_ptr,
 								fdf->params.img_ptr, MENU_W, 0);
