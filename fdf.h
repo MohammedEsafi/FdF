@@ -103,5 +103,7 @@ void			z_altitude(t_fdf *fdf, t_point map[fdf->height][fdf->width]);
 int				best_zoom(int height, int width);
 void			usage(t_fdf fdf);
 void			move(t_fdf fdf, t_point map[fdf.height][fdf.width]);
+int				mouse_move(int x, int y, t_fdf *fdf);
+int				mouse_release(int button, int x, int y, t_fdf *fdf);
 
 #endif

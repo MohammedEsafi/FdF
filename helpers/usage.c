@@ -21,7 +21,7 @@ void	usage(t_fdf fdf)
 	win_ptr = fdf.params.win_ptr;
 	mlx_string_put(mlx_ptr, win_ptr, PAD, 1 * LH, WH, "     How to Use");
 	mlx_string_put(mlx_ptr, win_ptr, PAD, 3 * LH, WH, "Zoom: Scroll");
-	mlx_string_put(mlx_ptr, win_ptr, PAD, 4 * LH, WH, "Move: Arrows(W/A/S/D)");
+	mlx_string_put(mlx_ptr, win_ptr, PAD, 4 * LH, WH, "Move: Arrows/Mouse");
 	mlx_string_put(mlx_ptr, win_ptr, PAD, 5 * LH, WH, "Rotate:");
 	mlx_string_put(mlx_ptr, win_ptr, PAD, 6 * LH, WH, "  X-Axis: 2/8");
 	mlx_string_put(mlx_ptr, win_ptr, PAD, 7 * LH, WH, "  Y-Axis: 4/6");

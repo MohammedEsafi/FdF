@@ -32,7 +32,9 @@ OBJ =	fdf.o \
 		helpers/z_altitude.o \
 		helpers/usage.o \
 		helpers/best_zoom.o \
-		helpers/move.o
+		helpers/move.o \
+		helpers/mouse_move.o \
+		helpers/mouse_release.o
 
 MINI_LIB_FLAGS = -lm -lmlx -framework OpenGL -framework AppKit
 

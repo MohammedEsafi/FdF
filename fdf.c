@@ -84,32 +84,6 @@ static void	error_handler(int status, char **argv)
 	}
 }
 
-static int	mouse_release(int button, int x, int y, t_fdf *fdf)
-{
-	(void)x;
-	(void)y;
-	if (button == 1)
-	{
-		fdf->params.x_mouse = 0;
-		fdf->params.y_mouse = 0;
-	}
-	return (0);
-}
-
-static int	mouse_move(int x, int y, t_fdf *fdf)
-{
-	if (fdf->params.x_mouse != 0 || fdf->params.y_mouse != 0)
-	{
-		fdf->params.x -= fdf->params.x_mouse - x;
-		fdf->params.y -= fdf->params.y_mouse - y;
-		fdf->params.x_mouse = x;
-		fdf->params.y_mouse = y;
-	}
-	mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
-	kit(fdf);
-	return (0);
-}
-
 int			main(int argc, char **argv)
 {
 	t_fdf	fdf;
