@@ -74,7 +74,7 @@ typedef struct	s_fdf
 		int				a_x;
 		int				a_y;
 		int				a_z;
-	}					params;
+	}			params;
 }				t_fdf;
 
 /*
@@ -85,8 +85,7 @@ typedef struct	s_fdf
 int				ft_check_file(int fd, t_fdf *fdf, t_list **alst);
 int				lst_to_map(t_fdf *fdf, t_list **alst);
 int				ft_hextoi(const char *hex);
-void			draw_line(t_fdf *fdf, t_point start,
-							t_point end);
+void			draw_line(t_fdf *fdf, t_point start, t_point end);
 void			draw_map(t_fdf *fdf, t_point map[fdf->height][fdf->width]);
 int				mouse_press(int key, int x, int y, t_fdf *fdf);
 int				key_press(int keycode, t_fdf *fdf);
