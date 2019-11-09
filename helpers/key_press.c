@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 21:51:20 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/09 15:40:36 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/09 17:36:02 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ int			key_press(int keycode, t_fdf *fdf)
 		fdf->params.x = 0;
 		fdf->params.y = 0;
 		fdf->params.z_alt = 0;
+		fdf->params.animation = 0;
 		fdf->params.camera = 1;
 		fdf->params.scale = best_zoom(fdf->height, fdf->width);
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
