@@ -6,11 +6,12 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 21:51:20 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/09 17:36:02 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/09 18:36:23 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
+#include <stdio.h>
 
 int			key_press(int keycode, t_fdf *fdf)
 {

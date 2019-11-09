@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 03:07:20 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/09 14:27:53 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/09 18:45:21 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ static void	initialise_map(t_fdf *fdf)
 		fdf->params.x = 0;
 		fdf->params.y = 0;
 		fdf->params.animation = 0;
-		fdf->params.x_angle += 0;
-		fdf->params.y_angle += 0;
-		fdf->params.z_angle += 0;
+		fdf->params.x_angle = 0;
+		fdf->params.y_angle = 0;
+		fdf->params.z_angle = 0;
 	}
 }
 
