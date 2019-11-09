@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/05 03:41:42 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/09 12:48:20 by tbareich         ###   ########.fr       */
+/*   Created: 2019/11/05 03:41:42 by mesafi            #+#    #+#             */
+/*   Updated: 2019/11/09 15:27:34 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	lstshift(t_list **alst)
 	free(tmp);
 }
 
-int		lst_to_map(t_fdf *fdf, t_list **alst)
+int			lst_to_map(t_fdf *fdf, t_list **alst)
 {
 	int		i;
 	int		j;

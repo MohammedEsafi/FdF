@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 21:51:20 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/09 15:23:49 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/09 15:40:36 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int			key_press(int keycode, t_fdf *fdf)
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
-	if (keycode == 85)
+	if (keycode == 85 || keycode == 92)
 	{
 		fdf->params.a_x = 0;
 		fdf->params.a_y = 0;
@@ -59,7 +59,7 @@ int			key_press(int keycode, t_fdf *fdf)
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
-	if (keycode == 83)
+	if (keycode == 83 || keycode == 89)
 	{
 		fdf->params.a_x = 0;
 		fdf->params.a_y = 0;
@@ -129,25 +129,25 @@ int			key_press(int keycode, t_fdf *fdf)
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
-	if (keycode == 126)
+	if (keycode == 126 || keycode == 13)
 	{
 		fdf->params.y -= 8;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
-	if (keycode == 125)
+	if (keycode == 125 || keycode == 1)
 	{
 		fdf->params.y += 8;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
-	if (keycode == 123)
+	if (keycode == 123  || keycode == 0)
 	{
 		fdf->params.x -= 8;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
-	if (keycode == 124)
+	if (keycode == 124  || keycode == 2)
 	{
 		fdf->params.x += 8;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
@@ -160,7 +160,7 @@ int			key_press(int keycode, t_fdf *fdf)
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
-	if (keycode == 0)
+	if (keycode == 49)
 	{
 		fdf->params.animation = ~fdf->params.animation;
 		if (!fdf->params.a_x && !fdf->params.a_y && !fdf->params.a_z)
