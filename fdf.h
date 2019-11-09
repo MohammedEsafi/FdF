@@ -19,11 +19,6 @@
 
 # define FDF_H
 
-# include "libft/libft.h"
-# include "mlx.h"
-# include <math.h>
-# include <fcntl.h>
-
 # define H 1080
 # define W 1920
 # define MENU_W 250
@@ -32,6 +27,21 @@
 # define PAD 20
 # define MENU_BACKGROUND 0x060607
 # define IMAGE_BACKGROUND 0x141414
+
+/*
+ ** includes
+ ** --------
+*/
+
+# include "libft/libft.h"
+# include <mlx.h>
+# include <math.h>
+# include <fcntl.h>
+
+/*
+ ** structures
+ ** ----------
+*/
 
 typedef struct	s_point
 {
@@ -66,6 +76,11 @@ typedef struct	s_fdf
 		int				a_z;
 	}					params;
 }				t_fdf;
+
+/*
+ ** Functions
+ ** --------------
+*/
 
 int				ft_check_file(int fd, t_fdf *fdf, t_list **alst);
 int				lst_to_map(t_fdf *fdf, t_list **alst);
