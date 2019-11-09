@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 03:07:20 by ael-makk          #+#    #+#             */
-/*   Updated: 2019/11/08 08:16:58 by tbareich         ###   ########.fr       */
+/*   Created: 2019/11/04 03:07:20 by tbareich          #+#    #+#             */
+/*   Updated: 2019/11/09 14:27:53 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,24 @@ static void	initialise_map(t_fdf *fdf)
 		fdf->params.z_alt = 0;
 		fdf->params.x = 0;
 		fdf->params.y = 0;
+		fdf->params.animation = 0;
+		fdf->params.x_angle += 0;
+		fdf->params.y_angle += 0;
+		fdf->params.z_angle += 0;
 	}
+}
+
+static int	animation(t_fdf *fdf)
+{
+	if (fdf->params.animation)
+	{
+		fdf->params.x_angle += 0.0174533 * fdf->params.a_x;
+		fdf->params.y_angle += 0.0174533 * fdf->params.a_y;
+		fdf->params.z_angle += 0.0174533 * fdf->params.a_z;
+		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
+		kit(fdf);
+	}
+	return (0);
 }
 
 static void	error_handler(int status, char **argv)
@@ -86,6 +103,7 @@ int			main(int argc, char **argv)
 		kit(&fdf);
 		mlx_hook(fdf.params.win_ptr, 4, 0, mouse_press, &fdf);
 		mlx_hook(fdf.params.win_ptr, 2, 0, key_press, &fdf);
+		mlx_loop_hook(fdf.params.mlx_ptr, animation, &fdf);
 		mlx_loop(fdf.params.mlx_ptr);
 	}
 	else

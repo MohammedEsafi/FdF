@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/27 09:10:00 by ael-makk          #+#    #+#             */
-/*   Updated: 2019/11/09 10:03:39 by tbareich         ###   ########.fr       */
+/*   Created: 2019/11/09 12:49:18 by tbareich          #+#    #+#             */
+/*   Updated: 2019/11/09 14:18:07 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct	s_fdf
 		void			*mlx_ptr;
 		void			*win_ptr;
 		void			*img_ptr;
-		int			*data;
+		int				*data;
 		unsigned char	camera:1;
 		int				scale;
 		double			x_angle;
@@ -52,6 +52,10 @@ typedef struct	s_fdf
 		int				z_alt;
 		int				x;
 		int				y;
+		int				animation;
+		int				a_x;
+		int				a_y;
+		int				a_z;
 	}					params;
 }				t_fdf;
 

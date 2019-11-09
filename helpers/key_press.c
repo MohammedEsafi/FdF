@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/07 21:51:20 by ael-makk          #+#    #+#             */
-/*   Updated: 2019/11/09 12:37:14 by tbareich         ###   ########.fr       */
+/*   Created: 2019/11/07 21:51:20 by tbareich          #+#    #+#             */
+/*   Updated: 2019/11/09 15:23:49 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,55 @@ int			key_press(int keycode, t_fdf *fdf)
 {
 	if (keycode == 91)
 	{
-		fdf->params.x_angle += 0.10472;
+		fdf->params.x_angle += 0.0628319;
+		fdf->params.a_x = 1;
+		fdf->params.a_y = 0;
+		fdf->params.a_z = 0;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
 	if (keycode == 84)
 	{
-		fdf->params.x_angle -= 0.10472;
+		fdf->params.a_x = -1;
+		fdf->params.a_y = 0;
+		fdf->params.a_z = 0;
+		fdf->params.x_angle -= 0.0628319;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
 	if (keycode == 88)
 	{
-		fdf->params.y_angle += 0.10472;
+		fdf->params.a_x = 0;
+		fdf->params.a_y = 1;
+		fdf->params.a_z = 0;
+		fdf->params.y_angle += 0.0628319;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
 	if (keycode == 86)
 	{
-		fdf->params.y_angle -= 0.10472;
+		fdf->params.a_x = 0;
+		fdf->params.a_y = -1;
+		fdf->params.a_z = 0;
+		fdf->params.y_angle -= 0.0628319;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
 	if (keycode == 85)
 	{
-		fdf->params.z_angle += 0.10472;
+		fdf->params.a_x = 0;
+		fdf->params.a_y = 0;
+		fdf->params.a_z = 1;
+		fdf->params.z_angle += 0.0628319;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
 	if (keycode == 83)
 	{
-		fdf->params.z_angle -= 0.10472;
+		fdf->params.a_x = 0;
+		fdf->params.a_y = 0;
+		fdf->params.a_z = -1;
+		fdf->params.z_angle -= 0.0628319;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
@@ -60,8 +78,8 @@ int			key_press(int keycode, t_fdf *fdf)
 	}
 	if (keycode == 15 && fdf->params.camera == 0)
 	{
-		fdf->params.y_angle = 1.5708;
-		fdf->params.z_angle = 0;
+		fdf->params.y_angle = 0;
+		fdf->params.z_angle = 1.5708;
 		fdf->params.x_angle = -1.5708;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
@@ -77,9 +95,6 @@ int			key_press(int keycode, t_fdf *fdf)
 	if (keycode == 34)
 	{
 		fdf->params.camera = 1;
-		fdf->params.x_angle = 0;
-		fdf->params.y_angle = 0;
-		fdf->params.z_angle = 0;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
@@ -104,13 +119,13 @@ int			key_press(int keycode, t_fdf *fdf)
 	}
 	if (keycode == 24 || keycode == 69)
 	{
-		fdf->params.z_alt += 3;
+		fdf->params.z_alt += 1;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
 	if (keycode == 27 || keycode == 78)
 	{
-		fdf->params.z_alt -= 3;
+		fdf->params.z_alt -= 1;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
@@ -137,6 +152,23 @@ int			key_press(int keycode, t_fdf *fdf)
 		fdf->params.x += 8;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
+	}
+	if (keycode == 8)
+	{
+		fdf->params.x = 0;
+		fdf->params.y = 0;
+		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
+		kit(fdf);
+	}
+	if (keycode == 0)
+	{
+		fdf->params.animation = ~fdf->params.animation;
+		if (!fdf->params.a_x && !fdf->params.a_y && !fdf->params.a_z)
+		{
+			fdf->params.a_z = 1;
+			mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
+			kit(fdf);
+		}
 	}
 	if (keycode == 53)
 	{

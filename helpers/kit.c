@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 20:07:04 by mesafi            #+#    #+#             */
-/*   Updated: 2019/11/09 10:05:51 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/09 15:11:45 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void		kit(t_fdf *fdf)
 	fdf->params.data = (int *)mlx_get_data_addr(fdf->params.img_ptr, &bits_per_pixel, &size_line, &endian);
 	z_altitude(fdf, map);
 	scale(fdf, map);
-	x_rotation(fdf, map);
-	y_rotation(fdf, map);
 	z_rotation(fdf, map);
+	y_rotation(fdf, map);
+	x_rotation(fdf, map);
 	if (fdf->params.camera)
 		project_iso(fdf, map);
 	center(fdf, map);
