@@ -14,8 +14,6 @@
 
 int			mouse_press(int key, int x, int y, t_fdf *fdf)
 {
-	(void)x;
-	(void)y;
 	if (key == 4)
 	{
 		fdf->params.scale += 2;
@@ -28,11 +26,10 @@ int			mouse_press(int key, int x, int y, t_fdf *fdf)
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
-	// if (key == 1)
-	// {
-	// 	fdf->params.x -= x;
-	// 	fdf->params.y -= y;
-	// }
-	// if (fdf->params.x_mouse != 0 || fdf->params.x_mouse != 0)
+	if (key == 1)
+	{
+		fdf->params.x_mouse = x;
+		fdf->params.y_mouse = y;
+	}
 	return (1);
 }

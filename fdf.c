@@ -46,6 +46,8 @@ static void	initialise_map(t_fdf *fdf)
 		fdf->params.x_angle = 0;
 		fdf->params.y_angle = 0;
 		fdf->params.z_angle = 0;
+		fdf->params.x_mouse = 0;
+		fdf->params.y_mouse = 0;
 	}
 }
 
@@ -82,20 +84,31 @@ static void	error_handler(int status, char **argv)
 	}
 }
 
-// static int	mouse_release(int button, int x, int y, t_fdf *fdf)
-// {
-// 	(void)button;
-// 	// if (button == 1)
-// 	// {
-// 		fdf->params.x -= fdf->params.x_mouse - x;
-// 		fdf->params.y -= fdf->params.y_mouse - y;
-// 	// }
-// 	fdf->params.x_mouse = 0;
-// 	fdf->params.y_mouse = 0;
-// 	mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
-// 	kit(fdf);
-// 	return (0);
-// }
+static int	mouse_release(int button, int x, int y, t_fdf *fdf)
+{
+	(void)x;
+	(void)y;
+	if (button == 1)
+	{
+		fdf->params.x_mouse = 0;
+		fdf->params.y_mouse = 0;
+	}
+	return (0);
+}
+
+static int	mouse_move(int x, int y, t_fdf *fdf)
+{
+	if (fdf->params.x_mouse != 0 || fdf->params.y_mouse != 0)
+	{
+		fdf->params.x -= fdf->params.x_mouse - x;
+		fdf->params.y -= fdf->params.y_mouse - y;
+		fdf->params.x_mouse = x;
+		fdf->params.y_mouse = y;
+	}
+	mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
+	kit(fdf);
+	return (0);
+}
 
 int			main(int argc, char **argv)
 {
@@ -118,7 +131,8 @@ int			main(int argc, char **argv)
 		kit(&fdf);
 		mlx_hook(fdf.params.win_ptr, 4, 0, mouse_press, &fdf);
 		mlx_hook(fdf.params.win_ptr, 2, 0, key_press, &fdf);
-		// mlx_hook(fdf.params.win_ptr, 5, 0, mouse_release, &fdf);
+		mlx_hook(fdf.params.win_ptr, 6, 0, mouse_move, &fdf);
+		mlx_hook(fdf.params.win_ptr, 5, 0, mouse_release, &fdf);
 		mlx_loop_hook(fdf.params.mlx_ptr, animation, &fdf);
 		mlx_loop(fdf.params.mlx_ptr);
 	}

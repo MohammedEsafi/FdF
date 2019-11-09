@@ -75,13 +75,9 @@ typedef struct	s_fdf
 		int				a_x;
 		int				a_y;
 		int				a_z;
-<<<<<<< HEAD
-	}			params;
-=======
 		int				x_mouse;
 		int				y_mouse;
 	}					params;
->>>>>>> d51bac0e3f21d3f5c5c5e5e3f45018e6c51645fd
 }				t_fdf;
 
 /*
