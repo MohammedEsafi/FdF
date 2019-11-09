@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 00:48:21 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/09 15:05:24 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/09 22:33:06 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,12 @@ void			draw_line(t_fdf *fdf, t_point start, t_point end)
 	while (1)
 	{
 		current.color = get_color(current, start, end);
-		if (current.x > (W - MENU_W) || current.y > H)
+		if (current.x > (W - MENU_W) && current.y > H)
 			return ;
 		if (current.x < (W - MENU_W) && current.x >= 0 && current.y < H && current.y >= 0)
 			fdf->params.data[current.y * (W - MENU_W) + current.x] = current.color;
 		if (current.x == end.x && current.y == end.y)
-			break ;
+			return ;
 		e2 = err;
 		if (e2 > -dx)
 		{

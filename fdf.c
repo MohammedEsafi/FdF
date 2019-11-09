@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 03:07:20 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/09 14:27:53 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/09 23:03:11 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ static void	initialise_map(t_fdf *fdf)
 		fdf->params.x = 0;
 		fdf->params.y = 0;
 		fdf->params.animation = 0;
-		fdf->params.x_angle += 0;
-		fdf->params.y_angle += 0;
-		fdf->params.z_angle += 0;
+		fdf->params.x_angle = 0;
+		fdf->params.y_angle = 0;
+		fdf->params.z_angle = 0;
 	}
 }
 
@@ -82,6 +82,21 @@ static void	error_handler(int status, char **argv)
 	}
 }
 
+// static int	mouse_release(int button, int x, int y, t_fdf *fdf)
+// {
+// 	(void)button;
+// 	// if (button == 1)
+// 	// {
+// 		fdf->params.x -= fdf->params.x_mouse - x;
+// 		fdf->params.y -= fdf->params.y_mouse - y;
+// 	// }
+// 	fdf->params.x_mouse = 0;
+// 	fdf->params.y_mouse = 0;
+// 	mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
+// 	kit(fdf);
+// 	return (0);
+// }
+
 int			main(int argc, char **argv)
 {
 	t_fdf	fdf;
@@ -103,6 +118,7 @@ int			main(int argc, char **argv)
 		kit(&fdf);
 		mlx_hook(fdf.params.win_ptr, 4, 0, mouse_press, &fdf);
 		mlx_hook(fdf.params.win_ptr, 2, 0, key_press, &fdf);
+		// mlx_hook(fdf.params.win_ptr, 5, 0, mouse_release, &fdf);
 		mlx_loop_hook(fdf.params.mlx_ptr, animation, &fdf);
 		mlx_loop(fdf.params.mlx_ptr);
 	}

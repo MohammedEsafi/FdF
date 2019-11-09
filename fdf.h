@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 12:49:18 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/09 14:18:07 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/09 22:32:46 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # include <mlx.h>
 # include <math.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 /*
  ** structures
@@ -56,7 +57,7 @@ typedef struct	s_fdf
 	t_point				**map;
 	int					width;
 	int					height;
-	struct
+	struct		s_params
 	{
 		void			*mlx_ptr;
 		void			*win_ptr;
@@ -74,7 +75,13 @@ typedef struct	s_fdf
 		int				a_x;
 		int				a_y;
 		int				a_z;
+<<<<<<< HEAD
 	}			params;
+=======
+		int				x_mouse;
+		int				y_mouse;
+	}					params;
+>>>>>>> d51bac0e3f21d3f5c5c5e5e3f45018e6c51645fd
 }				t_fdf;
 
 /*
