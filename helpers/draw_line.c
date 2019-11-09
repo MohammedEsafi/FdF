@@ -22,12 +22,12 @@ static double	percent(int start, int end, int current)
 	return ((distance == 0) ? 1.0 : (placement / distance));
 }
 
-static int	get_light(int start, int end, double percentage)
+static int		get_light(int start, int end, double percentage)
 {
 	return ((int)((1 - percentage) * start + percentage * end));
 }
 
-static int	get_color(t_point current, t_point start, t_point end)
+static int		get_color(t_point current, t_point start, t_point end)
 {
 	int		red;
 	int		green;
@@ -50,7 +50,7 @@ static int	get_color(t_point current, t_point start, t_point end)
 	return ((red << 16) | (green << 8) | blue);
 }
 
-void	draw_line(t_fdf *fdf, t_point start, t_point end)
+void			draw_line(t_fdf *fdf, t_point start, t_point end)
 {
 	int		dx;
 	int		dy;

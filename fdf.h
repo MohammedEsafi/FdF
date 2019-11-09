@@ -21,8 +21,9 @@
 # define H 1080
 # define W 1920
 # define MENU_W 250
-# define LINE_HEIGHT 27
-# define PADDING 20
+# define LH 27
+# define WH 0xFFFFFF
+# define PAD 20
 # define MENU_BACKGROUND 0x060607
 
 typedef struct	s_point
@@ -43,7 +44,7 @@ typedef struct	s_fdf
 		void			*mlx_ptr;
 		void			*win_ptr;
 		void			*img_ptr;
-		int			*data;
+		int				*data;
 		unsigned char	camera:1;
 		int				scale;
 		double			x_angle;

@@ -12,7 +12,7 @@
 
 #include "../fdf.h"
 
-int     best_zoom(int height, int width)
+int		best_zoom(int height, int width)
 {
 	int		h;
 	int		w;
