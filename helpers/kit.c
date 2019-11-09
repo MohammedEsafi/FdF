@@ -54,7 +54,7 @@ void		kit(t_fdf *fdf)
 	if (map[0][0].x + fdf->params.x != map[0][0].x ||
 		map[0][0].y + fdf->params.y != map[0][0].y)
 		move(*fdf, map);
-	make_image_background(fdf, 0x141414);
+	make_image_background(fdf, IMAGE_BACKGROUND);
 	draw_map(fdf, map);
 	mlx_put_image_to_window(fdf->params.mlx_ptr, fdf->params.win_ptr,
 								fdf->params.img_ptr, MENU_W, 0);

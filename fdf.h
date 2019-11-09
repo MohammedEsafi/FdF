@@ -11,6 +11,12 @@
 /* ************************************************************************** */
 
 #ifndef FDF_H
+
+/*
+ ** definitions
+ ** --------
+*/
+
 # define FDF_H
 
 # include "libft/libft.h"
@@ -25,6 +31,7 @@
 # define WH 0xFFFFFF
 # define PAD 20
 # define MENU_BACKGROUND 0x060607
+# define IMAGE_BACKGROUND 0x141414
 
 typedef struct	s_point
 {
