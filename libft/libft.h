@@ -6,12 +6,23 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 18:42:33 by tbareich          #+#    #+#             */
-/*   Updated: 2019/10/27 22:04:23 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/06 05:41:22 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
+
+/*
+ ** definitions
+ ** --------
+*/
+
 # define LIBFT_H
+
+# define BUFF_SIZE 2000
+
+# define ARRLST_SIZE 4
+# define ABS(X) (X < 0 ? -X : X)
 
 /*
  ** includes
@@ -42,6 +53,12 @@ typedef struct	s_bst
 	struct s_bst	*left;
 	struct s_bst	*right;
 }				t_bst;
+
+typedef struct	s_arrlst
+{
+	unsigned int	length;
+	void			**array;
+}				t_arrlst;
 
 /*
  ** libc Functions
@@ -144,12 +161,15 @@ int				bst_modify_addr(t_bst *node, void *content,
 		size_t content_size);
 
 /*
- ** ft_printf Functions
+ ** Binary Search Functions
  ** -----------------------
 */
 
-int				ft_printf(char *format, ...);
-int				ft_dprintf(int fd, char *format, ...);
+t_arrlst		*arrlst_create(int size);
+void			arrlst_add(t_arrlst **arrlst, void *elm);
+void			arrlst_copy(t_arrlst *old_arr, t_arrlst *new_arr);
+void			arrlst_del(t_arrlst **arrlst);
+int				arrlst_size(t_arrlst arrlst);
 
 /*
  ** extra Functions
@@ -158,5 +178,10 @@ int				ft_dprintf(int fd, char *format, ...);
 
 char			*ft_strjoin_free(char const *s1, char const *s2, int option);
 char			*ft_strdup_free(char **s1);
+void			*ft_realloc(void *ptr, size_t pre_size, size_t size);
+int				get_int_len(int nbr);
+int				get_next_line(const int fd, char **line);
+int				ft_printf(const char *format, ...);
+int				ft_dprintf(int fd, const char *format, ...);
 
 #endif

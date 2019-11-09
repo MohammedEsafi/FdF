@@ -5,60 +5,90 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/27 22:24:06 by tbareich          #+#    #+#             */
-/*   Updated: 2019/10/31 13:55:47 by tbareich         ###   ########.fr       */
+/*   Created: 2019/11/04 03:07:20 by ael-makk          #+#    #+#             */
+/*   Updated: 2019/11/08 08:16:58 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void		ft_clean_matrix(t_matrix *matrix)
+static void	make_usage_background(t_fdf fdf, int x, int x_end, int color)
 {
-	int		i;
+	int		y;
 
-	i = 0;
-	while (i < matrix->rows)
+	while (x <= x_end)
 	{
-		free(matrix->matrix[i]);
-		matrix->matrix[i] = 0;
-		i++;
-	}
-}
-
-void		print_matrix(t_matrix matrix)
-{
-	int		i;
-	int		j;
-
-	j = 0;
-	ft_printf("rows : %d\ncols : %d\n", matrix.rows, matrix.cols);
-	ft_printf("%s\n", "===============================================");
-	while (j < matrix.rows)
-	{
-		i = 0;
-		while (i < matrix.cols)
+		y = 0;
+		while (y <= H)
 		{
-			ft_printf("{red}x: %-6d{green}y:%-6d {blue}z:%-6d{magenta}color : \
-%d{eoc}\n", matrix.matrix[j][i].x,
-						matrix.matrix[j][i].y, matrix.matrix[j][i].z,
-						matrix.matrix[j][i].color);
-			i++;
+			mlx_pixel_put(fdf.params.mlx_ptr, fdf.params.win_ptr, x, y, color);
+			y++;
 		}
-		j++;
-		ft_printf("%s\n", "===============================================");
+		x++;
 	}
 }
 
-void		fdf(int fd, t_matrix *matrix)
+static void	initialise_map(t_fdf *fdf)
 {
-	char	*str;
+	if (fdf)
+	{
+		fdf->map = 0;
+		fdf->width = 0;
+		fdf->height = 0;
+		fdf->params.camera = 1;
+		fdf->params.x_angle = 0;
+		fdf->params.y_angle = 0;
+		fdf->params.z_angle = 0;
+		fdf->params.z_alt = 0;
+		fdf->params.x = 0;
+		fdf->params.y = 0;
+	}
+}
 
-	str = read_fdf_file(fd);
-	close(fd);
-	if (str == 0)
-		return ;
-	ft_printf("{green}%s{eoc}\n", str);
-	fill_matrix(str, matrix);
-	print_matrix(*matrix);
-	ft_clean_matrix(matrix);
+static void	error_handler(int status, char **argv)
+{
+	if (status == -1)
+	{
+		ft_putstr("No file ");
+		ft_putendl(argv[1]);
+		exit(1);
+	}
+	if (status == -2)
+	{
+		ft_putendl("Found wrong line length. Exiting.");
+		exit(1);
+	}
+	else if (status == 1)
+	{
+		ft_putendl("No data found.");
+		exit(1);
+	}
+}
+
+int			main(int argc, char **argv)
+{
+	t_fdf	fdf;
+	int		fd;
+	t_list	*alst;
+
+	initialise_map(&fdf);
+	if (argc == 2)
+	{
+		error_handler((fd = open(argv[1], O_RDONLY)), argv);
+		error_handler(ft_check_file(fd, &fdf, &alst), argv);
+		close(fd);
+		lst_to_map(&fdf, &alst);
+		fdf.params.scale = best_zoom(fdf.height, fdf.width);
+		fdf.params.mlx_ptr = mlx_init();
+		fdf.params.win_ptr = mlx_new_window(fdf.params.mlx_ptr, W, H, argv[1]);
+		make_usage_background(fdf, 0, MENU_W - 1, 0x121212);
+		usage(fdf);
+		kit(&fdf);
+		mlx_hook(fdf.params.win_ptr, 4, 0, mouse_press, &fdf);
+		mlx_hook(fdf.params.win_ptr, 2, 0, key_press, &fdf);
+		mlx_loop(fdf.params.mlx_ptr);
+	}
+	else
+		ft_putendl("Usage : ./fdf <filename>");
+	return (0);
 }

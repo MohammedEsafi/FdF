@@ -6,45 +6,38 @@
 #    By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/29 23:44:50 by tbareich          #+#    #+#              #
-#    Updated: 2019/10/29 20:44:48 by tbareich         ###   ########.fr        #
+#    Updated: 2019/11/05 22:13:29 by tbareich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-SRCS = bst_delete.c bst_deletenode.c bst_find.c bst_inorder.c bst_insert.c \
-	   bst_max.c bst_min.c bst_modify_addr.c bst_newnode.c ft_atoi.c \
-	   ft_bzero.c ft_delcontent.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
-	   ft_isdigit.c ft_isprint.c ft_itoa.c ft_lstadd.c ft_lstaddat.c \
-	   ft_lstdel.c ft_lstdelat.c ft_lstdelone.c ft_lstiter.c ft_lstlen.c \
-	   ft_lstmap.c ft_lstnew.c ft_lstpop.c ft_lstpush.c ft_lstshift.c \
-	   ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
-	   ft_memdel.c ft_memmove.c ft_memset.c ft_putchar.c ft_putchar_fd.c \
-	   ft_putendl.c ft_putendl_fd.c ft_putlst.c ft_putnbr.c ft_putnbr_fd.c \
-	   ft_putstr.c ft_putstr_fd.c ft_strcat.c ft_strchr.c ft_strclr.c \
-	   ft_strcmp.c ft_strcpy.c ft_strdel.c ft_strdup.c ft_strdup_free.c \
-	   ft_strequ.c ft_striter.c ft_striteri.c ft_strjoin.c ft_strjoin_free.c \
-	   ft_strlcat.c ft_strlen.c ft_strmap.c ft_strmapi.c ft_strncat.c \
-	   ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c \
-	   ft_strrchr.c ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c \
-	   ft_tolower.c ft_toupper.c get_next_line.c ft_realloc.c
-OBJS_DIR = objs
-OBJS = $(addprefix $(OBJS_DIR)/, ${SRCS:.c=.o})
+SRCS = bst_delete.o bst_deletenode.o bst_find.o bst_inorder.o bst_insert.o \
+	   bst_max.o bst_min.o bst_modify_addr.o bst_newnode.o ft_atoi.o \
+	   ft_bzero.o ft_delcontent.o ft_isalnum.o ft_isalpha.o ft_isascii.o \
+	   ft_isdigit.o ft_isprint.o ft_itoa.o ft_lstadd.o ft_lstaddat.o \
+	   ft_lstdel.o ft_lstdelat.o ft_lstdelone.o ft_lstiter.o ft_lstlen.o \
+	   ft_lstmap.o ft_lstnew.o ft_lstpop.o ft_lstpush.o ft_lstshift.o \
+	   ft_memalloc.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o \
+	   ft_memdel.o ft_memmove.o ft_memset.o ft_putchar.o ft_putchar_fd.o \
+	   ft_putendl.o ft_putendl_fd.o ft_putlst.o ft_putnbr.o ft_putnbr_fd.o \
+	   ft_putstr.o ft_putstr_fd.o ft_strcat.o ft_strchr.o ft_strclr.o \
+	   ft_strcmp.o ft_strcpy.o ft_strdel.o ft_strdup.o ft_strdup_free.o \
+	   ft_strequ.o ft_striter.o ft_striteri.o ft_strjoin.o ft_strjoin_free.o \
+	   ft_strlcat.o ft_strlen.o ft_strmap.o ft_strmapi.o ft_strncat.o \
+	   ft_strncmp.o ft_strncpy.o ft_strnequ.o ft_strnew.o ft_strnstr.o \
+	   ft_strrchr.o ft_strsplit.o ft_strstr.o ft_strsub.o ft_strtrim.o \
+	   ft_tolower.o ft_toupper.o get_next_line.o ft_realloc.o get_int_len.o
 CFLAGS = -Wall -Werror -Wextra
+CC = gcc
 
 all: $(NAME)
 
-$(NAME) : $(OBJS)
-	ar rc $(NAME) $(OBJS)
+$(NAME) : $(SRCS) $(FT_PRINTF)
+	ar rc $(NAME) $(SRCS)
 	ranlib $(NAME)
 
-$(OBJS): $(OBJS_DIR)/%.o : %.c | $(OBJS_DIR)
-	gcc $(CFLAGS) -c $< -o $@
-
-$(OBJS_DIR):
-	mkdir $(OBJS_DIR)
-
 clean:
-	rm -rf $(OBJS_DIR)
+	rm -rf $(SRCS)
 
 fclean: clean
 	rm -f $(NAME)

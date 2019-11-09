@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbareich <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 16:00:16 by tbareich          #+#    #+#             */
-/*   Updated: 2019/05/10 15:04:44 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/05 21:58:49 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 static int	error_handler(t_bst *root, int fd, char **line)
 {

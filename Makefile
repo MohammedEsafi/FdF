@@ -5,36 +5,51 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/28 00:48:48 by tbareich          #+#    #+#              #
-#    Updated: 2019/10/30 11:34:52 by tbareich         ###   ########.fr        #
+#    Created: 2019/10/27 13:57:00 by ael-makk          #+#    #+#              #
+#    Updated: 2019/11/08 05:16:44 by tbareich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
-FDF = main.c
-LIBFT = libft/libft.a
-FT_PRINTF = libft/libftprintf.a
+
 CC = gcc
+
 CFLAGS = -Wall -Wextra -Werror
-GRAPHICFLAGC = -lmlx -framework OpenGL -framework AppKit
-MINILIBX = minilibx
-SRC = src/draw_line.o src/read_fdf_file.o src/helpers/ft_hextoi.o fdf.o
+
+OBJ =	fdf.o \
+		helpers/ft_check_file.o \
+		helpers/lst_to_map.o \
+		helpers/ft_hextoi.o \
+		helpers/draw_line.o \
+		helpers/draw_map.o \
+		helpers/scale.o \
+		helpers/projection.o \
+		helpers/mouse_press.o \
+		helpers/center.o \
+		helpers/kit.o \
+		helpers/rotation.o \
+		helpers/key_press.o \
+		helpers/z_altitude.o \
+		helpers/usage.o \
+		helpers/best_zoom.o \
+		helpers/move.o
+
+MLX_LIB = MiniLibX
+
+MINI_LIB_FLAGS = -lmlx -framework OpenGL -framework AppKit
 
 all : $(NAME)
 
-$(NAME): $(SRC) $(LIBFT)
-	$(CC) $(CFLAGS) -o $(NAME) $(FDF) $(LIBFT) $(FT_PRINTF) $(SRC) \
-	$(GRAPHICFLAGC) -L $(MINILIBX)
+$(NAME) : $(OBJ)
+	make -C libft/
+	$(CC) $(CFLAG) $(OBJ) libft/libft.a -L $(MLX_LIB) $(MINI_LIB_FLAGS) -o $(NAME)
 
-$(LIBFT): 
-	make -C libft
-
-clean: 
-	rm -f $(SRC)
-	make clean -C libft
+clean :
+	rm -f $(OBJ)
+	make clean -C libft/
 
 fclean : clean
-	rm -f fdf
-	make fclean -C libft
+	make fclean -C libft/
+	rm -f $(NAME)
 
-re: fclean all
+re : fclean all
