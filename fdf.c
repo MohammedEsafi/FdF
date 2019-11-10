@@ -12,7 +12,6 @@
 
 #include "fdf.h"
 
-
 void	make_usage_background(t_fdf fdf, int x, int x_end, int color)
 {
 	int		y;

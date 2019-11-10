@@ -19,7 +19,7 @@
 
 # define LIBFT_H
 
-# define BUFF_SIZE 2000
+# define BUFF_SIZE 1024
 
 # define ARRLST_SIZE 4
 # define ABS(X) (X < 0 ? -X : X)

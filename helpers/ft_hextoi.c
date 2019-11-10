@@ -11,6 +11,20 @@
 /* ************************************************************************** */
 
 #include "../fdf.h"
+#include <stdlib.h>
+
+int		ft_hexlen(const char *hex)
+{
+	int		count;
+
+	count = -1;
+	while (((*hex >= 0 && *hex <= 9) || (*hex >= 'A' && *hex <= 'F') || (*hex >= 'a' && *hex <= 'f')) && (*hex != ' '))
+	{
+		count++;
+		hex++;
+	}
+	return (count);
+}
 
 int		ft_hextoi(const char *hex)
 {
@@ -19,10 +33,10 @@ int		ft_hextoi(const char *hex)
 
 	if (hex == 0)
 		return (0);
-	i = 5;
 	hex += 2;
+	i = ft_hexlen(hex);
 	integer = 0;
-	while (*hex != ' ' && i >= 0)
+	while (i >= 0)
 	{
 		if (*hex >= '0' && *hex <= '9')
 			integer += (*hex - '0') * pow(16, i);
@@ -33,5 +47,6 @@ int		ft_hextoi(const char *hex)
 		i--;
 		hex++;
 	}
+	// integer = (int)strtol(hex, NULL, 16);
 	return (integer);
 }

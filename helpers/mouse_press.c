@@ -11,9 +11,15 @@
 /* ************************************************************************** */
 
 #include "../fdf.h"
+#include <stdio.h>
 
 int			mouse_press(int key, int x, int y, t_fdf *fdf)
 {
+	if (x >= 48 && x <= 60 && y >= -16 && y <= -4)
+	{
+		// free before exiting
+		exit(0);
+	}
 	if (key == 4)
 	{
 		fdf->params.scale += 2;
@@ -22,11 +28,12 @@ int			mouse_press(int key, int x, int y, t_fdf *fdf)
 	}
 	if (key == 5)
 	{
-		fdf->params.scale -= 2;
+		if (fdf->params.scale > 0)
+			fdf->params.scale -= 2;
 		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
 		kit(fdf);
 	}
-	if (key == 1)
+	if (key == 1 && y >= 0 && y <= H && x >= MENU_W && x <= W)
 	{
 		fdf->params.x_mouse = x;
 		fdf->params.y_mouse = y;
