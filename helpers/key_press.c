@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 21:51:20 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/09 23:07:26 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/10 06:58:38 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,13 @@ int			key_press(int keycode, t_fdf *fdf)
 	{
 		fdf->params.x = 0;
 		fdf->params.y = 0;
+	}
+	if (keycode == 37)
+	{
+		fdf->params.theme = ~fdf->params.theme;
+		make_usage_background(*fdf, 0, MENU_W - 1, fdf->params.theme ?
+					LIGHT_MENU : DARK_MENU);
+		usage(*fdf);
 	}
 	if (keycode == 49)
 	{

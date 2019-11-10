@@ -6,13 +6,14 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 03:07:20 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/09 23:03:11 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/10 06:59:22 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	make_usage_background(t_fdf fdf, int x, int x_end, int color)
+
+void	make_usage_background(t_fdf fdf, int x, int x_end, int color)
 {
 	int		y;
 
@@ -48,6 +49,7 @@ static void	initialise_map(t_fdf *fdf)
 		fdf->params.z_angle = 0;
 		fdf->params.x_mouse = 0;
 		fdf->params.y_mouse = 0;
+		fdf->params.theme = 0;
 	}
 }
 
@@ -100,7 +102,8 @@ int			main(int argc, char **argv)
 		fdf.params.scale = best_zoom(fdf.height, fdf.width);
 		fdf.params.mlx_ptr = mlx_init();
 		fdf.params.win_ptr = mlx_new_window(fdf.params.mlx_ptr, W, H, argv[1]);
-		make_usage_background(fdf, 0, MENU_W - 1, 0x121212);
+		make_usage_background(fdf, 0, MENU_W - 1, fdf.params.theme ?
+			LIGHT_MENU : DARK_MENU);
 		usage(fdf);
 		kit(&fdf);
 		mlx_hook(fdf.params.win_ptr, 4, 0, mouse_press, &fdf);

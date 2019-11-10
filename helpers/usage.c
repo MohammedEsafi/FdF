@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 20:08:16 by mesafi            #+#    #+#             */
-/*   Updated: 2019/11/09 15:38:04 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/10 07:32:45 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	usage(t_fdf fdf)
 	mlx_string_put(mlx_ptr, win_ptr, PAD, 15 * LH, WH, "Altitude: +(=)/-");
 	mlx_string_put(mlx_ptr, win_ptr, PAD, 16 * LH, WH, "Animation: Space key");
 	mlx_string_put(mlx_ptr, win_ptr, PAD, 17 * LH, WH, "Center: C key");
-	mlx_string_put(mlx_ptr, win_ptr, PAD, 19 * LH, WH, "Initialization: 0 Key");
-	mlx_string_put(mlx_ptr, win_ptr, PAD, 20 * LH, WH, "Exit: ESC Key");
+	mlx_string_put(mlx_ptr, win_ptr, PAD, 20 * LH, WH, "Switch theme: L Key");
+	mlx_string_put(mlx_ptr, win_ptr, PAD, 21 * LH, WH, "Initialization: 0 Key");
+	mlx_string_put(mlx_ptr, win_ptr, PAD, 22 * LH, WH, "Exit: ESC Key");
 }

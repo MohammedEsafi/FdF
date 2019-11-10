@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 20:07:04 by mesafi            #+#    #+#             */
-/*   Updated: 2019/11/09 20:41:36 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/10 06:48:25 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		kit(t_fdf *fdf)
 	if (map[0][0].x + fdf->params.x != map[0][0].x ||
 		map[0][0].y + fdf->params.y != map[0][0].y)
 		move(*fdf, map);
-	make_image_background(fdf, IMAGE_BACKGROUND);
+	make_image_background(fdf, fdf->params.theme ? LIGHT_IMG : DARK_IMG);
 	draw_map(fdf, map);
 	mlx_put_image_to_window(fdf->params.mlx_ptr, fdf->params.win_ptr,
 								fdf->params.img_ptr, MENU_W, 0);

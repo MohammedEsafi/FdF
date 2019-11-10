@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 12:49:18 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/09 22:32:46 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/10 07:25:42 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@
 # define LH 27
 # define WH 0xFFFFFF
 # define PAD 20
-# define MENU_BACKGROUND 0x060607
-# define IMAGE_BACKGROUND 0x141414
+# define DARK_IMG 0x141413
+# define LIGHT_IMG 0x757574
+# define DARK_MENU 0x101009
+# define LIGHT_MENU 0x686867
 
 /*
  ** includes
@@ -77,6 +79,7 @@ typedef struct	s_fdf
 		int				a_z;
 		int				x_mouse;
 		int				y_mouse;
+		int				theme:1;
 	}					params;
 }				t_fdf;
 
@@ -105,5 +108,6 @@ void			usage(t_fdf fdf);
 void			move(t_fdf fdf, t_point map[fdf.height][fdf.width]);
 int				mouse_move(int x, int y, t_fdf *fdf);
 int				mouse_release(int button, int x, int y, t_fdf *fdf);
+void			make_usage_background(t_fdf fdf, int x, int x_end, int color);
 
 #endif
