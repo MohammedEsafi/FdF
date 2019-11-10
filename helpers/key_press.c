@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 21:51:20 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/10 06:58:38 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/10 07:41:57 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,29 +96,17 @@ int			key_press(int keycode, t_fdf *fdf)
 		fdf->params.scale = best_zoom(fdf->height, fdf->width);
 	}
 	if (keycode == 24 || keycode == 69)
-	{
 		fdf->params.z_alt += 1;
-	}
 	if (keycode == 27 || keycode == 78)
-	{
 		fdf->params.z_alt -= 1;
-	}
 	if (keycode == 126 || keycode == 13)
-	{
 		fdf->params.y -= 8;
-	}
 	if (keycode == 125 || keycode == 1)
-	{
 		fdf->params.y += 8;
-	}
 	if (keycode == 123  || keycode == 0)
-	{
 		fdf->params.x -= 8;
-	}
 	if (keycode == 124  || keycode == 2)
-	{
 		fdf->params.x += 8;
-	}
 	if (keycode == 8)
 	{
 		fdf->params.x = 0;
@@ -128,16 +116,14 @@ int			key_press(int keycode, t_fdf *fdf)
 	{
 		fdf->params.theme = ~fdf->params.theme;
 		make_usage_background(*fdf, 0, MENU_W - 1, fdf->params.theme ?
-					LIGHT_MENU : DARK_MENU);
+								LIGHT_MENU : DARK_MENU);
 		usage(*fdf);
 	}
 	if (keycode == 49)
 	{
 		fdf->params.animation = ~fdf->params.animation;
 		if (!fdf->params.a_x && !fdf->params.a_y && !fdf->params.a_z)
-		{
 			fdf->params.a_z = 1;
-		}
 	}
 	if (keycode == 53)
 	{

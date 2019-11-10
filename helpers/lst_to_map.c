@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 03:41:42 by mesafi            #+#    #+#             */
-/*   Updated: 2019/11/09 15:27:34 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/10 08:54:00 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ static void	create_point(char *str, t_point *point, int x, int y)
 	point->x = x;
 	point->y = y;
 	point->z = ft_atoi(split[0]);
+	if (point->z >= 100)
+		point->z = 100;
+	else if (point->z <= -100)
+		point->z = -100;
 	point->color = split[1] == 0 ? 0xFF7A71 : ft_hextoi(split[1]);
 	if (point->z >= 1 && split[1] == 0)
 		point->color = 0xfbf7c3;
