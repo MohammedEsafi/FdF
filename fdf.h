@@ -54,6 +54,16 @@ typedef struct	s_point
 	int		color;
 }				t_point;
 
+typedef struct	s_draw
+{
+	int		delta_x;
+	int		delta_y;
+	int		slope_error;
+	int		step_x;
+	int		step_y;
+	int		tmp;
+}				t_draw;
+
 typedef struct	s_fdf
 {
 	t_point				**map;

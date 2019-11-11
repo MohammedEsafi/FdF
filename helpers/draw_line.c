@@ -50,39 +50,40 @@ static int		get_color(t_point current, t_point start, t_point end)
 	return ((red << 16) | (green << 8) | blue);
 }
 
+void			init_d(t_draw *d, t_point start, t_point end)
+{
+	d->delta_x = abs(end.x - start.x);
+	d->step_x = start.x < end.x ? 1 : -1;
+	d->delta_y = abs(end.y - start.y);
+	d->step_y = start.y < end.y ? 1 : -1;
+	d->slope_error = (d->delta_x > d->delta_y ? d->delta_x : -d->delta_y) / 2;
+}
+
 void			draw_line(t_fdf *fdf, t_point start, t_point end)
 {
-	int		dx;
-	int		dy;
-	int		err;
-	int		sx;
-	int		sy;
-	int		e2;
-	t_point	current;
+	t_draw	d;
+	t_point	index;
 
-	dx = abs(end.x - start.x);
-	sx = start.x < end.x ? 1 : -1;
-	dy = abs(end.y - start.y);
-	sy = start.y < end.y ? 1 : -1;
-	err = (dx > dy ? dx : -dy) / 2;
-	current = start;
+	init_d(&d, start, end);
+	index = start;
 	while (1)
 	{
-		current.color = get_color(current, start, end);
-		if (current.x < (W - MENU_W) && current.x >= 0 && current.y < H && current.y >= 0)
-			fdf->params.data[current.y * (W - MENU_W) + current.x] = current.color;
-		if (current.x == end.x && current.y == end.y)
+		index.color = get_color(index, start, end);
+		if (index.x < (W - MENU_W) && index.x >= 0 &&
+				index.y < H && index.y >= 0)
+			fdf->params.data[index.y * (W - MENU_W) + index.x] = index.color;
+		if (index.x == end.x && index.y == end.y)
 			return ;
-		e2 = err;
-		if (e2 > -dx)
+		d.tmp = d.slope_error;
+		if (d.tmp > -d.delta_x)
 		{
-			err -= dy;
-			current.x += sx;
+			d.slope_error -= d.delta_y;
+			index.x += d.step_x;
 		}
-		if (e2 < dy)
+		if (d.tmp < d.delta_y)
 		{
-			err += dx;
-			current.y += sy;
+			d.slope_error += d.delta_x;
+			index.y += d.step_y;
 		}
 	}
 }
