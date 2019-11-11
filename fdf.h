@@ -109,5 +109,6 @@ void			move(t_fdf fdf, t_point map[fdf.height][fdf.width]);
 int				mouse_move(int x, int y, t_fdf *fdf);
 int				mouse_release(int button, int x, int y, t_fdf *fdf);
 void			make_usage_background(t_fdf fdf, int x, int x_end, int color);
+int				animation(t_fdf *fdf);
 
 #endif

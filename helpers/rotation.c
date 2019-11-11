@@ -27,9 +27,9 @@ void	x_rotation(t_fdf *fdf, t_point map[fdf->height][fdf->width])
 		{
 			y = map[i][j].y;
 			z = map[i][j].z;
-			map[i][j].y = y * cos(fdf->params.x_angle)  - z *
+			map[i][j].y = y * cos(fdf->params.x_angle) - z *
 							sin(fdf->params.x_angle);
-			map[i][j].z =  y * sin(fdf->params.x_angle) + z *
+			map[i][j].z = y * sin(fdf->params.x_angle) + z *
 							cos(fdf->params.x_angle);
 			j++;
 		}

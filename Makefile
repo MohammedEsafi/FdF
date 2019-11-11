@@ -34,7 +34,8 @@ OBJ =	fdf.o \
 		helpers/best_zoom.o \
 		helpers/move.o \
 		helpers/mouse_move.o \
-		helpers/mouse_release.o
+		helpers/mouse_release.o \
+		helpers/animation.o
 
 MINI_LIB_FLAGS = -lm -lmlx -framework OpenGL -framework AppKit
 

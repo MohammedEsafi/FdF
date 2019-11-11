@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-void	make_usage_background(t_fdf fdf, int x, int x_end, int color)
+static void	make_usage_background(t_fdf fdf, int x, int x_end, int color)
 {
 	int		y;
 
@@ -52,19 +52,6 @@ static void	initialise_map(t_fdf *fdf)
 	}
 }
 
-static int	animation(t_fdf *fdf)
-{
-	if (fdf->params.animation)
-	{
-		fdf->params.x_angle += 0.0174533 * fdf->params.a_x;
-		fdf->params.y_angle += 0.0174533 * fdf->params.a_y;
-		fdf->params.z_angle += 0.0174533 * fdf->params.a_z;
-		mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);
-		kit(fdf);
-	}
-	return (0);
-}
-
 static void	error_handler(int status, char **argv)
 {
 	if (status == -1)
@@ -83,6 +70,16 @@ static void	error_handler(int status, char **argv)
 		ft_putendl("No data found.");
 		exit(1);
 	}
+}
+
+static void	hook(t_fdf *fdf)
+{
+	mlx_hook(fdf->params.win_ptr, 4, 0, mouse_press, fdf);
+	mlx_hook(fdf->params.win_ptr, 2, 0, key_press, fdf);
+	mlx_hook(fdf->params.win_ptr, 6, 0, mouse_move, fdf);
+	mlx_hook(fdf->params.win_ptr, 5, 0, mouse_release, fdf);
+	mlx_hook(fdf->params.win_ptr, 17, 0, exit_hook, fdf);
+	mlx_loop_hook(fdf->params.mlx_ptr, animation, fdf);
 }
 
 static int	exit_hook()
@@ -111,12 +108,7 @@ int			main(int argc, char **argv)
 			LIGHT_MENU : DARK_MENU);
 		usage(fdf);
 		kit(&fdf);
-		mlx_hook(fdf.params.win_ptr, 4, 0, mouse_press, &fdf);
-		mlx_hook(fdf.params.win_ptr, 2, 0, key_press, &fdf);
-		mlx_hook(fdf.params.win_ptr, 6, 0, mouse_move, &fdf);
-		mlx_hook(fdf.params.win_ptr, 5, 0, mouse_release, &fdf);
-		mlx_hook(fdf.params.win_ptr, 17, 0, exit_hook, &fdf);
-		mlx_loop_hook(fdf.params.mlx_ptr, animation, &fdf);
+		hook(&fdf);
 		mlx_loop(fdf.params.mlx_ptr);
 	}
 	else
