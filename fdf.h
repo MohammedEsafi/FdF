@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 12:49:18 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/11 16:51:47 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 23:29:45 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@
 # include <mlx.h>
 # include <math.h>
 # include <fcntl.h>
-# include <stdio.h>
 
 /*
  ** structures
