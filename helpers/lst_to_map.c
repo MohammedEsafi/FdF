@@ -43,6 +43,7 @@ void		lstshift(t_list **alst)
 		ft_strdel(((char **)(*alst)->content) + i);
 		i++;
 	}
+	free((*alst)->content);
 	tmp = *alst;
 	*alst = (*alst)->next;
 	free(tmp);
