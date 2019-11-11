@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../fdf.h"
-#include <stdio.h>
 
 int		key_press(int keycode, t_fdf *fdf)
 {

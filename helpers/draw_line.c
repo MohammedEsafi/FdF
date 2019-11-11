@@ -6,18 +6,11 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 00:48:21 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/11 16:03:56 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 19:13:26 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
-
-#define MAX(a, b) (a > b ? a : b)
-
-float	fmodule(float i)
-{
-	return (i < 0) ? -i : i;
-}
 
 static double	percent(int start, int end, int current)
 {
@@ -92,26 +85,4 @@ void			draw_line(t_fdf *fdf, t_point start, t_point end)
 			current.y += sy;
 		}
 	}
-
-	// float	x_step;
-	// float	y_step;
-	// t_point	current;
-	// int		max;
-
-	// current = start;
-	// x_step = end.x - start.x;
-	// y_step = end.y - start.y;
-	// max = MAX(fmodule(x_step), fmodule(y_step));
-	// x_step /= max;
-	// y_step /= max;
-	// while ((int)(current.x - end.x) || (int)(current.y - end.y))
-	// {
-	// 	current.color = get_color(current, start, end);
-	// 	if (current.x <= (W - MENU_W) && current.x >= 0 && current.y <= H && current.y >= 0)
-	// 		fdf->params.data[current.y * (W - MENU_W) + current.x] = current.color;
-	// 	current.x += x_step;
-	// 	current.y += y_step;
-	// 	// if (current.x > (W - MENU_W) || current.y > H)
-	// 	// 	return ;
-	// }
 }
