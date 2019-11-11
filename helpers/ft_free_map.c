@@ -16,6 +16,8 @@ void	ft_free_map(t_fdf *fdf)
 {
 	int		i;
 
+	if (fdf->map == NULL)
+		return ;
 	i = 0;
 	while (i < fdf->height)
 	{

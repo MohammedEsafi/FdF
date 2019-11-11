@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../fdf.h"
-#include <stdio.h>
 
 int			mouse_press(int key, int x, int y, t_fdf *fdf)
 {
