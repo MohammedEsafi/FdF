@@ -39,12 +39,12 @@ int			ft_check_file(int fd, t_fdf *fdf, t_list **alst)
 		first_read = 0;
 		if ((splited_line = ft_strsplit(line, ' ')))
 		{
+			ft_strdel(&line);
 			if (splited_line[0] == 0)
 			{
 				free(splited_line);
 				return (-3);
 			}
-			ft_strdel(&line);
 			if ((lst_elm = (t_list*)malloc(sizeof(t_list))) == 0)
 				return (-5);
 			lst_elm->content = splited_line;

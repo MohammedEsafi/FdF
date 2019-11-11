@@ -16,13 +16,13 @@ void	ft_free_map(t_fdf *fdf)
 {
 	int		i;
 
-	if (fdf->map == NULL)
-		return ;
+	// if (fdf->map == NULL)
+	// 	return ;
 	i = 0;
 	while (i < fdf->height)
 	{
-		if (fdf->map[i] == 0)
-			break ;
+		// if (fdf->map[i] == 0)
+		// 	break ;
 		free(fdf->map[i]);
 		i++;
 	}

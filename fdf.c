@@ -94,6 +94,7 @@ int			main(int argc, char **argv)
 		error_handler(&fdf, &alst, ft_check_file(fd, &fdf, &alst), argv);
 		close(fd);
 		lst_to_map(&fdf, &alst);
+		ft_free_map(&fdf);
 		fdf.params.scale = best_zoom(fdf.height, fdf.width);
 		fdf.params.mlx_ptr = mlx_init();
 		fdf.params.win_ptr = mlx_new_window(fdf.params.mlx_ptr, W, H, argv[1]);
