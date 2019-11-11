@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 16:50:09 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/11 16:58:42 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 17:47:32 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_free_map(t_fdf *fdf)
 {
 	int		i;
 
+	if (fdf->map == NULL)
+		return ;
 	i = 0;
 	while (i < fdf->height)
 	{

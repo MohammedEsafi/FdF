@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 03:41:42 by mesafi            #+#    #+#             */
-/*   Updated: 2019/11/11 16:56:22 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 18:06:49 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static void	create_point(char *str, t_point *point, int x, int y)
 	char	**split;
 
 	split = ft_strsplit(str, ',');
-	point->x = x;
-	point->y = y;
-	point->z = ft_atoi(split[0]);
+	point->x = str ? x : 0;
+	point->y = str ? y : 0;
+	point->z = str ? ft_atoi(split[0]) : 0;
 	if (point->z >= 100)
 		point->z = 100;
 	else if (point->z <= -100)

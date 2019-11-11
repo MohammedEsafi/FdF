@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 03:07:20 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/11 16:57:18 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 17:47:12 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int			main(int argc, char **argv)
 	t_list	*alst;
 
 	initialise_fdf(&fdf);
+	fdf.map = 0;
 	if (argc == 2)
 	{
 		error_handler(&fdf, &alst, (fd = open(argv[1], O_RDONLY)), argv);
