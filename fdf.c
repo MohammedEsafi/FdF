@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 03:07:20 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/11 15:11:10 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 16:57:18 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,6 @@ static void	initialise_fdf(t_fdf *fdf)
 	}
 }
 
-static void	free_map(t_fdf *fdf)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < fdf->height)
-	{
-		j = 0;
-		while (j < fdf->width)
-		{
-			free(fdf->map[i] + j);
-			j++;
-		}
-		i++;
-	}
-	free(fdf->map);
-}
-
 static void	error_handler(t_fdf *fdf, t_list **alst, int status, char **argv)
 {
 	if (status == -1)
@@ -64,7 +45,7 @@ static void	error_handler(t_fdf *fdf, t_list **alst, int status, char **argv)
 	}
 	if (status == -2)
 	{
-		free_map(fdf);
+		ft_free_map(fdf);
 		ft_putendl("Found wrong line length. Exiting.");
 	}
 	if (status == -3)
@@ -73,6 +54,8 @@ static void	error_handler(t_fdf *fdf, t_list **alst, int status, char **argv)
 		ft_putendl("No data found.");
 	if (status == -5)
 	{
+		if (fdf->map != 0)
+			ft_free_map(fdf);
 		while (*alst)
 			lstshift(alst);
 		ft_putendl("Unknown Error.");
@@ -83,7 +66,7 @@ static void	error_handler(t_fdf *fdf, t_list **alst, int status, char **argv)
 
 static int	exit_hook(t_fdf *fdf)
 {
-	free_map(fdf);
+	ft_free_map(fdf);
 	exit(0);
 	return (0);
 }

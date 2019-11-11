@@ -6,7 +6,7 @@
 #    By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/09 12:49:31 by tbareich          #+#    #+#              #
-#    Updated: 2019/11/09 12:49:32 by tbareich         ###   ########.fr        #
+#    Updated: 2019/11/11 16:51:16 by tbareich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ OBJ =	fdf.o \
 		helpers/animation.o \
 		helpers/make_usage_background.o \
 		helpers/make_image_background.o \
+		helpers/ft_free_map.o \
 		handlers/handler_2d.o \
 		handlers/handler_camera.o \
 		handlers/handler_animation.o \

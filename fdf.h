@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 12:49:18 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/11 14:01:40 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 16:51:47 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,6 @@ void			handler_x_angle(int key, t_fdf *fdf);
 void			handler_y_angle(int key, t_fdf *fdf);
 void			handler_z_angle(int key, t_fdf *fdf);
 void			handler_z_alt(int key, t_fdf *fdf);
+void			ft_free_map(t_fdf *fdf);
 
 #endif

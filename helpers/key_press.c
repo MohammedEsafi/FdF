@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 21:51:20 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/10 07:41:57 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 16:53:16 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		key_press(int keycode, t_fdf *fdf)
 	handler_animation(keycode, fdf);
 	if (keycode == 53)
 	{
-		// free map && t_lst
+		ft_free_map(fdf);
 		exit(0);
 	}
 	mlx_destroy_image(fdf->params.mlx_ptr, fdf->params.img_ptr);

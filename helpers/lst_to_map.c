@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 03:41:42 by mesafi            #+#    #+#             */
-/*   Updated: 2019/11/11 14:01:22 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 16:56:22 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,14 @@ int			lst_to_map(t_fdf *fdf, t_list **alst)
 	int		i;
 	int		j;
 
-	fdf->map = (t_point **)malloc(sizeof(t_point *) * fdf->height);
+	if ((fdf->map = (t_point **)malloc(sizeof(t_point *) * fdf->height)) == 0)
+		return (-5);
 	i = fdf->height - 1;
 	while (*alst)
 	{
 		j = 0;
-		fdf->map[i] = (t_point *)malloc(sizeof(t_point) * fdf->width);
+		if (!(fdf->map[i] = (t_point *)malloc(sizeof(t_point) * fdf->width)))
+			return (-5);
 		while (j < fdf->width)
 		{
 			create_point(((char **)(*alst)->content)[j], fdf->map[i] + j, j, i);
