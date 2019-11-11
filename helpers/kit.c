@@ -21,17 +21,6 @@ static void	copy_map(t_fdf *fdf, t_point map[fdf->height][fdf->width])
 		ft_memcpy(map[i], fdf->map[i], (sizeof(t_point) * fdf->width));
 }
 
-static void	make_image_background(t_fdf *fdf, int color)
-{
-	int		i;
-
-	i = (H - 1) * (W - MENU_W) + ((W - MENU_W) - 1);
-	while (i >= 0)
-	{
-		fdf->params.data[i--] = color;
-	}
-}
-
 void		kit(t_fdf *fdf)
 {
 	t_point		map[fdf->height][fdf->width];
