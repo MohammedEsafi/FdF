@@ -6,13 +6,13 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 03:07:20 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/11 08:41:01 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 15:11:10 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	initialise_map(t_fdf *fdf)
+static void	initialise_fdf(t_fdf *fdf)
 {
 	if (fdf)
 	{
@@ -36,29 +36,54 @@ static void	initialise_map(t_fdf *fdf)
 	}
 }
 
-static void	error_handler(int status, char **argv)
+static void	free_map(t_fdf *fdf)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < fdf->height)
+	{
+		j = 0;
+		while (j < fdf->width)
+		{
+			free(fdf->map[i] + j);
+			j++;
+		}
+		i++;
+	}
+	free(fdf->map);
+}
+
+static void	error_handler(t_fdf *fdf, t_list **alst, int status, char **argv)
 {
 	if (status == -1)
 	{
 		ft_putstr("No file ");
 		ft_putendl(argv[1]);
-		exit(1);
 	}
 	if (status == -2)
 	{
+		free_map(fdf);
 		ft_putendl("Found wrong line length. Exiting.");
-		exit(1);
 	}
-	else if (status == 1)
-	{
+	if (status == -3)
+		ft_putendl("Empty File.");
+	if (status == -4)
 		ft_putendl("No data found.");
-		exit(1);
+	if (status == -5)
+	{
+		while (*alst)
+			lstshift(alst);
+		ft_putendl("Unknown Error.");
 	}
+	if (status < 0)
+		exit(1);
 }
 
-static int	exit_hook(void)
+static int	exit_hook(t_fdf *fdf)
 {
-	// free
+	free_map(fdf);
 	exit(0);
 	return (0);
 }
@@ -79,11 +104,11 @@ int			main(int argc, char **argv)
 	int		fd;
 	t_list	*alst;
 
-	initialise_map(&fdf);
+	initialise_fdf(&fdf);
 	if (argc == 2)
 	{
-		error_handler((fd = open(argv[1], O_RDONLY)), argv);
-		error_handler(ft_check_file(fd, &fdf, &alst), argv);
+		error_handler(&fdf, &alst, (fd = open(argv[1], O_RDONLY)), argv);
+		error_handler(&fdf, &alst, ft_check_file(fd, &fdf, &alst), argv);
 		close(fd);
 		lst_to_map(&fdf, &alst);
 		fdf.params.scale = best_zoom(fdf.height, fdf.width);

@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 12:49:18 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/11 08:27:37 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 14:01:40 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,6 @@ void			make_usage_background(t_fdf fdf, int x, int x_end, int color);
 int				animation(t_fdf *fdf);
 void			make_usage_background(t_fdf fdf, int x, int x_end, int color);
 void			make_image_background(t_fdf *fdf, int color);
+void			lstshift(t_list **alst);
 
 #endif

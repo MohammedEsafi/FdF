@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 03:41:42 by mesafi            #+#    #+#             */
-/*   Updated: 2019/11/10 08:54:00 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 14:01:22 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	create_point(char *str, t_point *point, int x, int y)
 	free(split);
 }
 
-static void	lstshift(t_list **alst)
+void		lstshift(t_list **alst)
 {
 	unsigned	i;
 	t_list		*tmp;
