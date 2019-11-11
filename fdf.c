@@ -56,6 +56,13 @@ static void	error_handler(int status, char **argv)
 	}
 }
 
+static int	exit_hook(void)
+{
+	// free
+	exit(0);
+	return (0);
+}
+
 static void	hook(t_fdf *fdf)
 {
 	mlx_hook(fdf->params.win_ptr, 4, 0, mouse_press, fdf);
@@ -64,12 +71,6 @@ static void	hook(t_fdf *fdf)
 	mlx_hook(fdf->params.win_ptr, 5, 0, mouse_release, fdf);
 	mlx_hook(fdf->params.win_ptr, 17, 0, exit_hook, fdf);
 	mlx_loop_hook(fdf->params.mlx_ptr, animation, fdf);
-}
-
-static int	exit_hook()
-{
-	// free ;
-	exit(0);
 }
 
 int			main(int argc, char **argv)
