@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 03:07:20 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/10 06:59:22 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 08:41:01 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,12 @@ static void	error_handler(int status, char **argv)
 	}
 }
 
+static int	exit_hook()
+{
+	// free ;
+	exit(0);
+}
+
 int			main(int argc, char **argv)
 {
 	t_fdf	fdf;
@@ -109,6 +115,7 @@ int			main(int argc, char **argv)
 		mlx_hook(fdf.params.win_ptr, 2, 0, key_press, &fdf);
 		mlx_hook(fdf.params.win_ptr, 6, 0, mouse_move, &fdf);
 		mlx_hook(fdf.params.win_ptr, 5, 0, mouse_release, &fdf);
+		mlx_hook(fdf.params.win_ptr, 17, 0, exit_hook, &fdf);
 		mlx_loop_hook(fdf.params.mlx_ptr, animation, &fdf);
 		mlx_loop(fdf.params.mlx_ptr);
 	}

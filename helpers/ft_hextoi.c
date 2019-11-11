@@ -6,19 +6,19 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 04:43:07 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/09 22:17:49 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 08:41:23 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
-#include <stdlib.h>
 
 int		ft_hexlen(const char *hex)
 {
 	int		count;
 
 	count = -1;
-	while (((*hex >= 0 && *hex <= 9) || (*hex >= 'A' && *hex <= 'F') || (*hex >= 'a' && *hex <= 'f')) && (*hex != ' '))
+	while (((*hex >= '0' && *hex <= '9') || (*hex >= 'A' && *hex <= 'F')
+				|| (*hex >= 'a' && *hex <= 'f')))
 	{
 		count++;
 		hex++;
@@ -47,6 +47,5 @@ int		ft_hextoi(const char *hex)
 		i--;
 		hex++;
 	}
-	// integer = (int)strtol(hex, NULL, 16);
 	return (integer);
 }
