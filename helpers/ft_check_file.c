@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 17:27:07 by tbareich          #+#    #+#             */
-/*   Updated: 2019/11/11 20:18:51 by tbareich         ###   ########.fr       */
+/*   Updated: 2019/11/11 23:38:32 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_check_file(int fd, t_fdf *fdf, t_list **alst)
 		if (splited_line[0] == 0)
 		{
 			free(splited_line);
-			return (fdf->width == 0 ? -2 : -3);
+			return (fdf->width == 0 ? -4 : -2);
 		}
 		if ((lst_elm = (t_list*)malloc(sizeof(t_list))) == 0)
 			return (-5);
