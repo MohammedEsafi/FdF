@@ -35,7 +35,8 @@ OBJ =	fdf.o \
 		helpers/move.o \
 		helpers/mouse_move.o \
 		helpers/mouse_release.o \
-		helpers/animation.o
+		helpers/animation.o \
+		helpers/make_usage_background.o
 
 MINI_LIB_FLAGS = -lm -lmlx -framework OpenGL -framework AppKit
 

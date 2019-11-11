@@ -12,22 +12,6 @@
 
 #include "fdf.h"
 
-static void	make_usage_background(t_fdf fdf, int x, int x_end, int color)
-{
-	int		y;
-
-	while (x <= x_end)
-	{
-		y = 0;
-		while (y <= H)
-		{
-			mlx_pixel_put(fdf.params.mlx_ptr, fdf.params.win_ptr, x, y, color);
-			y++;
-		}
-		x++;
-	}
-}
-
 static void	initialise_map(t_fdf *fdf)
 {
 	if (fdf)
