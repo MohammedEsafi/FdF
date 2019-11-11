@@ -37,7 +37,17 @@ OBJ =	fdf.o \
 		helpers/mouse_release.o \
 		helpers/animation.o \
 		helpers/make_usage_background.o \
-		helpers/make_image_background.o
+		helpers/make_image_background.o \
+		handlers/handler_2d.o \
+		handlers/handler_camera.o \
+		handlers/handler_animation.o \
+		handlers/handler_scale.o \
+		handlers/handler_theme.o \
+		handlers/handler_x_angle.o \
+		handlers/handler_animation_direction.o \
+		handlers/handler_y_angle.o \
+		handlers/handler_z_alt.o \
+		handlers/handler_z_angle.o
 
 MINI_LIB_FLAGS = -lm -lmlx -framework OpenGL -framework AppKit
 

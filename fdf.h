@@ -113,5 +113,15 @@ int				animation(t_fdf *fdf);
 void			make_usage_background(t_fdf fdf, int x, int x_end, int color);
 void			make_image_background(t_fdf *fdf, int color);
 void			lstshift(t_list **alst);
+void			handler_2d(int key, t_fdf *fdf);
+void			handler_animation_direction(int key, t_fdf *fdf);
+void			handler_animation(int key, t_fdf *fdf);
+void			handler_camera(int key, t_fdf *fdf);
+void			handler_scale(int key, t_fdf *fdf);
+void			handler_theme(int key, t_fdf *fdf);
+void			handler_x_angle(int key, t_fdf *fdf);
+void			handler_y_angle(int key, t_fdf *fdf);
+void			handler_z_angle(int key, t_fdf *fdf);
+void			handler_z_alt(int key, t_fdf *fdf);
 
 #endif
